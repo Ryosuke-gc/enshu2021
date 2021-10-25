@@ -1,5 +1,5 @@
 from django import  forms
-from data import models
+from seat_app import models
 class BootstrapForm(forms.ModelForm):
     def __init__(self,*args,**kwargs):
         super(BootstrapForm,self).__init__(*args,**kwargs)

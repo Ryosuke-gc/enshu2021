@@ -1,4 +1,4 @@
-from data  import  models
+from seat_app import  models
 from django.forms import ModelForm
 from django import  forms
 from . import base

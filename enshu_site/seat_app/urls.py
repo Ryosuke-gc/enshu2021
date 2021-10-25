@@ -1,6 +1,6 @@
 from django.conf.urls import url,include
 from django.contrib import admin
-from  data.views import home
+from  seat_app.views import home
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^index/', home.index),

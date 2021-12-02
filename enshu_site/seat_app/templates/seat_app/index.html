@@ -1,13 +1,65 @@
 {% extends 'base.html' %}
 
 
+
+
 {% block body-contents %}
     <h1 class="mt-5">Status</h1>
-    <p>テキスト</p>
-    <p>グラフ（TBA）</p>
-    <p>グラフ（TBA）</p>
-    <p>グラフ（TBA）</p>
-    <p>グラフ（TBA）</p>
-    <p>グラフ（TBA）</p>
-    <p>グラフ（TBA）</p>
+    <canvas id="canvas-area"></canvas>
+    <script type="text/javascript">
+    //描画コンテキストの取得
+    var canvas = document.getElementById('canvas-area');
+    if (canvas.getContext) {
+    var context = canvas.getContext('2d');
+
+    //キャンバスのサイズを取得
+    const width= canvas.clientWidth;
+    const height= canvas.clientHeight;
+    //キャンバスのサイズ(CSSで指定したキャンバスのサイズをキャンバス内に反映)
+    canvas.width = 800;
+    canvas.height = 500;
+
+    //キャンバスの背景色
+    canvas.style.backgroundColor = "rgb(255,255,255)";
+    canvas.style.border = "2px solid"
+
+    // context.fillStyle = "orange"
+    // context.fillRect(25, 25, 100, 100);
+    // context.clearRect(45, 45, 60, 60);
+    // context.strokeRect(50, 50, 50, 50);
+    const status = [0,1,0,1,0,1,1,0,1,0,1,0]
+
+
+    for (var i = 0; i < 6; i++){
+        for (var j=0;j<2;j++){
+            context.strokeRect(30+30*j,25+70*i,30,70)
+            if (status[j*6+i] == 0){
+                context.fillStyle = 'Blue'
+            }
+            else{
+                context.fillStyle = 'Red'
+            }
+            context.fillRect(30+30*j,25+70*i,30,70)
+        }
+    }
+
+    for (var i = 0; i < 5; i++){
+        for (var j=0;j<2;j++){
+            context.strokeRect(180+30*j,25+70*i,30,70)
+            context.fillStyle = 'white'
+            context.fillRect(180+30*j,25+70*i,30,70)
+        }
+    }
+
+    for (var i = 0; i < 4; i++){
+        for (var j=0;j<2;j++){
+            context.strokeRect(330+30*j,25+70*i,30,70)
+            context.fillStyle = 'orange'
+            context.fillRect(330+30*j,25+70*i,30,70)
+        }
+    }
+
+    }
+
+    </script>
 {% endblock %}

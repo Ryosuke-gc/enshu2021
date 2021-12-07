@@ -4,10 +4,27 @@ from django.db import models
 
 class UserInfo(models.Model):
     """
-    用户信息表
+    user information table
     """
-    username = models.CharField(verbose_name="username", max_length=32,unique=True)
-    password = models.CharField(verbose_name="password", max_length=64)
-    usertype = models.CharField(verbose_name='usertype', max_length=32)
+    userid = models.CharField(verbose_name="userid", max_length=64,unique=True)
+    username = models.CharField(verbose_name="username", max_length=64,unique=True)
+    grade = models.CharField(verbose_name="grade", max_length=64)
     def __str__(self):
-        return self.username
+        return self.userid
+
+class SeatInfo(models.Model):
+    """
+    seat information table
+    """
+    id = models.IntegerField(verbose_name="id", max_length=32,unique=True)
+    seatid = models.IntegerField(verbose_name="seatid", max_length=32)
+    status = models.IntegerField(verbose_name="status", max_length=32)
+    time = models.TimeField(verbose_name="time")
+
+    def __str__(self):
+        return self.seatid
+
+class User2Seat(models.Model):
+    """
+    user - seat information table
+    """

@@ -19,7 +19,7 @@ class SeatInfo(models.Model):
     id = models.IntegerField(verbose_name="id", max_length=32,unique=True)
     seatid = models.IntegerField(verbose_name="seatid", max_length=32)
     status = models.IntegerField(verbose_name="status", max_length=32)
-    time = models.TimeField(verbose_name="time")
+    time = models.DateTimeField('timestamp', auto_now = True)
 
     def __str__(self):
         return self.seatid
